@@ -1,0 +1,23 @@
+<div class="modal fade" id="ajax-modal" data-ajax-modal tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" data-ajax-modal-content>
+      <div class="modal-header">
+        <button class="close" aria-label="Close" data-ajax-modal-close type="button">
+          &times;
+        </button>
+        <h4 class="modal-title" data-ajax-modal-title></h4>
+      </div>
+      <div class="modal-body clearfix">
+        <div data-ajax-modal-loading>
+          Loading&hellip;
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- content_for :page_js do %>
+  <script>
+    new AjaxModal()
+  </script>
+<%- end %>

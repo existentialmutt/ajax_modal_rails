@@ -1,0 +1,12 @@
+<h1>Messages</h1>
+
+<%- if session[:last_message] %>
+  <h4>Your Last Message:</h4>
+  <blockquote>
+    <%= session[:last_message] %>
+  </blockquote>
+<%- end %>
+
+<a href="<%= new_message_path %>" data-loads-in-ajax-modal>
+  Write a new message
+</a>

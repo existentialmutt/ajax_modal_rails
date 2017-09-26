@@ -1,0 +1,16 @@
+<%- content_for :modal_title do %>
+  Write a new message
+<% end -%>
+
+<%- if flash[:alert] %>
+  <p style="color: red"><%= flash[:alert] %></p>
+<%- end %>
+
+<%= form_tag messages_path, data: {submits_to_ajax_modal: true}  do %>
+
+  <input type="text" placeholder="Type a message" name="message">
+  <input type="submit">
+
+<%- end %>
+
+<%= link_to 'Get a fresh form', new_message_path, data: {loads_in_ajax_modal: true } %>

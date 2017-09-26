@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title" data-ajax-modal-title>
+    <%= yield :modal_title %>
+  </h4>
+  <button class="close" aria-label="Close" data-ajax-modal-close type="button">
+    &times;
+  </button>
+</div>
+<div class="modal-body clearfix">
+  <div data-ajax-modal-body>
+    <%= yield %>
+  </div>
+  <div data-ajax-modal-loading style="display: none;">
+    Loading&hellip;
+  </div>
+</div>
+<% if content_for?(:modal_footer) %>
+  <div class="modal-footer" data-pjax-modal-footer>
+    <%= yield :modal_footer %>
+  </div>
+<% end %>
+
+<%= yield :page_js %>
