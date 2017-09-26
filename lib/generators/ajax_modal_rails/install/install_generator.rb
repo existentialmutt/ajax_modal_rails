@@ -1,10 +1,4 @@
 class AjaxModalRails::InstallGenerator < Rails::Generators::Base
-  source_root File.expand_path('../../../../../app', __FILE__)
-  class_option :skip_layout, type: 'boolean', default: false, desc: "Don't modify application layout"
-  class_option :skip_javascript, type: 'boolean', default: false, desc: "Don't modify application javascript"
-  class_option :layout, type: 'string', default: default_layout, desc: 'Specify a custom layout'
-  class_option :javascript, type: 'string', default: 'app/views/layouts/application.js', desc: 'Specify a custom javascript'
-
 
   def self.default_layout
     begin
@@ -15,9 +9,15 @@ class AjaxModalRails::InstallGenerator < Rails::Generators::Base
     end
   end
 
+  class_option :skip_layout, type: 'boolean', default: false, desc: "Don't modify application layout"
+  class_option :skip_javascript, type: 'boolean', default: false, desc: "Don't modify application javascript"
+  class_option :layout, type: 'string', default: default_layout, desc: 'Specify a custom layout'
+  class_option :javascript, type: 'string', default: 'app/views/layouts/application.js', desc: 'Specify a custom javascript'
+
+
   def install
-    install_layout unless skip_layout
-    install_javascript unless skip_javascript
+    install_layout unless options.skip_layout?
+    install_javascript unless options.skip_javascript?
   end
 
   private
@@ -25,9 +25,9 @@ class AjaxModalRails::InstallGenerator < Rails::Generators::Base
     def install_layout
       begin
         Haml
-        append_to_file layout, File.read(File.expand_path('../templates/render_ajax_modal_frame.html.haml'), __FILE__)
+        append_to_file options.layout, File.read(File.expand_path('../templates/render_ajax_modal_frame.html.haml', __FILE__))
       rescue NameError
-        insert_into_file layout, File.read(File.expand_path('../templates/render_ajax_modal_frame.html.erb'), __FILE__), before: '</body>'
+        insert_into_file options.layout, File.read(File.expand_path('../templates/render_ajax_modal_frame.html.erb', __FILE__)), before: '</body>'
       end
     end
 

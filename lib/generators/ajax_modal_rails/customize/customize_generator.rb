@@ -8,9 +8,9 @@ class AjaxModalRails::CustomizeGenerator < Rails::Generators::Base
   source_root File.expand_path('../../../../../app', __FILE__)
 
   def copy!
-    copy_controllers unless skip_controllers
-    copy_views unless skip_views
-    copy_javascripts unless skip_javascripts
+    copy_controllers unless options.skip_controllers?
+    copy_views unless options.skip_views?
+    copy_javascripts unless options.skip_javascripts?
   end
 
   private 
