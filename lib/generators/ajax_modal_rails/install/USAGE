@@ -1,0 +1,5 @@
+Description:
+    Add ajax_modal_rails to the application layout
+
+Example:
+    rails generate ajax_modal_rails:install

@@ -1,0 +1,5 @@
+Description:
+    Copy AjaxModalRails files into your application for customization
+
+Example:
+    rails generate ajax_modal_rails:customize
