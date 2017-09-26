@@ -1,4 +1,4 @@
-module AjaxModalController
+module AjaxModalRails::Controller
   # This module sets up controllers to load their content in a modal
   # in response to pjax requests.  See pjax-modals.js.coffee for client side details
   #
@@ -23,7 +23,7 @@ module AjaxModalController
     def redirect_to_with_xhr_redirect(*args)
       if ajax_modal_request?
         flash.merge! args.last if args.length > 1
-        render "ajax_modals/redirect_via_js", layout: ajax_modal_layout, locals: {redirect: url_for(args.first)}
+        render "ajax_modal_rails/redirect_via_js", layout: ajax_modal_layout, locals: {redirect: url_for(args.first)}
       else
         redirect_to_without_xhr_redirect(*args)
       end
@@ -36,7 +36,7 @@ module AjaxModalController
   private
 
     def ajax_modal_layout
-      'ajax_modal_content'
+      'ajax_modal_rails/content'
     end
 
     def ajax_modal_request?

@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   
-  include AjaxModalController
+  include AjaxModalRails::Controller
 
   def index
   end
