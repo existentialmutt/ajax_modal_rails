@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ajax_modal_rails (0.1.0)
+    ajax_modal_rails (1.0.0)
       rails (~> 5.1.4)
 
 GEM
