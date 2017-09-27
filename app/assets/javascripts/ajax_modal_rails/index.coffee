@@ -40,6 +40,7 @@ class window.AjaxModal
           @content.html xhr.responseText
           @open
           @_registerLinks @content
+      return false
 
 
     # $('body').on 'ajax:complete', @formTriggersSelector, (event, data, status, xhr) =>
