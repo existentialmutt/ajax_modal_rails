@@ -5,7 +5,7 @@ This plugin provides a simple way to do common modal interactions in a rails app
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ajax_modal_rails'
+gem 'ajax_modal_rails', '~> 1.0'
 ```
 
 And then execute:
