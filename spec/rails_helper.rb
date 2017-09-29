@@ -67,7 +67,7 @@ RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
   config.before(:suite) do
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with :truncation, except: %w(ar_internal_metadata)
   end
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
@@ -92,14 +92,14 @@ end
 Capybara.javascript_driver = :poltergeist
 
 
-def run_default_server(app, port)
-  require 'rack/handler/webrick'
-  Rack::Handler::WEBrick.run(app, :Port => port, :AccessLog => [], :Logger => WEBrick::Log::new(nil, 0))
-  bootstrap_base = `bundle show bootstrap`
-  Rails.application.config.assets.paths << File.join(bootstrap_base, 'assets', 'stylesheets')
-  Rails.application.config.assets.paths << File.join(bootstrap_base, 'assets', 'javascripts')
+# def run_default_server(app, port)
+#   require 'rack/handler/webrick'
+#   Rack::Handler::WEBrick.run(app, :Port => port, :AccessLog => [], :Logger => WEBrick::Log::new(nil, 0))
+#   bootstrap_base = `bundle show bootstrap`
+#   Rails.application.config.assets.paths << File.join(bootstrap_base, 'assets', 'stylesheets')
+#   Rails.application.config.assets.paths << File.join(bootstrap_base, 'assets', 'javascripts')
 
-end
+# end
 
-Capybara.server = lambda {|app, port| run_default_server(app, port)}
+# Capybara.server = lambda {|app, port| run_default_server(app, port)}
 
