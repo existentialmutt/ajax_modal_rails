@@ -10,15 +10,10 @@ module AjaxModalRails::Controller
 
   extend ActiveSupport::Concern
 
+  HEADER = 'HTTP_X_AJAX_MODAL'
+
   included do
     layout ->(c) { ajax_modal_request? ? ajax_modal_layout : nil }
-
-    def form_html_options
-      Hash.new.tap do |result|
-        result['data-submits-to-pjax-modal'] = true if ajax_modal_request?
-      end
-    end
-    helper_method :form_html_options
 
     def redirect_to_with_xhr_redirect(*args)
       if ajax_modal_request?
@@ -43,7 +38,7 @@ module AjaxModalRails::Controller
       # TODO implement w/ special request header just catch all xhr for now
       # can always override in controller if necessary
       # request.env['HTTP_X_AJAX_MODAL'].present?
-      request.xhr?
+      request.env[HEADER].present?
     end
 
 end

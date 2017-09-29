@@ -20,8 +20,16 @@ class window.AjaxModal
       e.preventDefault()
       @loading.show()
       @open()
-      @content.load e.currentTarget.getAttribute("href"), (data) =>
-        @loading.hide()
+      $.ajax
+        url: e.currentTarget.getAttribute("href"),
+        dataType: 'html',
+        headers: {
+          'HTTP_X_AJAX_MODAL': true
+        },
+        complete: (xhr, status) =>
+          @loading.hide()
+          @content.html xhr.responseText
+          @open
 
   _registerForms: ->
     console.log $(@formTriggersSelector).toArray()
@@ -34,12 +42,14 @@ class window.AjaxModal
         url: form.getAttribute('action')
         type: form.getAttribute('method')
         dataType: 'html',
-        data: $(form).serialize()
+        data: $(form).serialize(),
+        headers: {
+          'HTTP_X_AJAX_MODAL': true
+        },
         complete: (xhr, status) =>
           @loading.hide()
           @content.html xhr.responseText
           @open
-          @_registerLinks @content
       return false
 
 

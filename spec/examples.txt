@@ -1,0 +1,10 @@
+example_id                                                           | status | run_time        |
+-------------------------------------------------------------------- | ------ | --------------- |
+./spec/dummy/spec/controllers/messages_controller_spec.rb[1:1:1:1]   | failed | 0.00136 seconds |
+./spec/dummy/spec/controllers/messages_controller_spec.rb[1:1:1:2]   | failed | 0.00126 seconds |
+./spec/dummy/spec/controllers/messages_controller_spec.rb[1:2:1:1:1] | failed | 0.00429 seconds |
+./spec/dummy/spec/controllers/messages_controller_spec.rb[1:2:1:2:1] | failed | 0.00134 seconds |
+./spec/dummy/spec/controllers/messages_controller_spec.rb[1:2:1:2:2] | failed | 0.00151 seconds |
+./spec/dummy/spec/features/create_messages_spec.rb[1:1:1]            | failed | 1.18 seconds    |
+./spec/dummy/spec/features/create_messages_spec.rb[1:1:2:1:1]        | failed | 0.19122 seconds |
+./spec/dummy/spec/features/create_messages_spec.rb[1:1:2:2:1]        | failed | 0.14829 seconds |

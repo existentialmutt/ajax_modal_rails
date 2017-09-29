@@ -42,7 +42,7 @@ RSpec.describe MessagesController, type: :controller do
         # TODO move to custom header
         # get articles_url, headers: { "Content-Type": "text/plain" } # simulate the request with custom header
 
-        get :new, xhr: true
+        get :new, headers: {'HTTP_X_AJAX_MODAL': true}
         expect(response).to be_success
       end
 
@@ -50,7 +50,7 @@ RSpec.describe MessagesController, type: :controller do
         # TODO move to custom header
         # get articles_url, headers: { "Content-Type": "text/plain" } # simulate the request with custom header
 
-        get :new, xhr: true
+        get :new, headers: {'HTTP_X_AJAX_MODAL': true}
         expect(response).to render_template('layouts/ajax_modal_rails/content')
       end
     end
@@ -60,19 +60,19 @@ RSpec.describe MessagesController, type: :controller do
     context "ajax modal request" do
         context "with valid params" do
           it "redirects via javascript" do
-            post :create, params: {message: valid_attributes}, xhr: true
+            post :create, params: {message: valid_attributes}, headers: {'HTTP_X_AJAX_MODAL': true}
             expect(response).to render_template('ajax_modal_rails/redirect_via_js')
           end
         end
 
         context "with invalid params" do
           it "returns a success response (i.e. to display the 'new' template)" do
-            post :create, params: {message: invalid_attributes}, xhr: true
+            post :create, params: {message: invalid_attributes}, headers: {'HTTP_X_AJAX_MODAL': true}
             expect(response).to be_success
           end
 
           it "renders the modal layout" do
-            post :create, params: {message: invalid_attributes}, xhr: true
+            post :create, params: {message: invalid_attributes}, headers: {'HTTP_X_AJAX_MODAL': true}
             expect(response).to render_template('layouts/ajax_modal_rails/content')
           end
         end

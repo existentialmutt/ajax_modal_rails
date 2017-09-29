@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'coffee-rails' # TODO remove coffeescript dependency
   s.add_development_dependency 'sass-rails', '~> 5.0'  
-  s.add_development_dependency 'turbolinks', '~> 5'
+  # s.add_development_dependency 'turbolinks', '~> 5'
   s.add_development_dependency 'jquery-rails'
   s.add_development_dependency 'bootstrap', '~> 4.0.0.beta'
   s.add_development_dependency 'rspec-rails', '~> 3.6'
