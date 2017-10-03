@@ -3,6 +3,8 @@ This plugin provides a simple way to do common modal interactions in a rails app
 
 ![demo screencast](doc/demo.gif)
 
+![demo screencast](doc/demo.gif)
+
 ## Installation
 Add this line to your application's Gemfile:
 
