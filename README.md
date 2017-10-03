@@ -1,6 +1,8 @@
 # AjaxModalRails
 This plugin provides a simple way to do common modal interactions in a rails app.  Keep your nice thin scaffolded controller, and just include a single mixin.  Then add data attribute to links and forms to load pages via ajax in a modal.
 
+![demo screencast](doc/demo.gif)
+
 ## Installation
 Add this line to your application's Gemfile:
 
@@ -40,7 +42,7 @@ The mixin sets the appropriate layout for modal requests and adds behavior that 
 
 ## Example
 
-These snippets are taken from the included [example application](blob/master/spec/dummy)
+These snippets are taken from the included [example application](spec/dummy)
 
 *app/controllers/messages_controller.rb*
 ```ruby
