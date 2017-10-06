@@ -7,8 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'rails-controller-testing'
 require 'capybara/rspec'
-# require 'selenium/webdriver'
-require 'capybara/poltergeist'
+require 'selenium/webdriver'
 require 'database_cleaner'
 require 'bootstrap'
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -86,10 +85,22 @@ RSpec.configure do |config|
 end
 
 # setup selenium
-# Capybara.register_driver :selenium_chrome do |app|
-#  Capybara::Selenium::Driver.new(app, browser: :chrome)
-# end
-Capybara.javascript_driver = :poltergeist
+Capybara.register_driver :chrome do |app|
+ Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.register_driver :headless_chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w(headless disable-gpu) }
+  )
+
+  Capybara::Selenium::Driver.new app,
+    browser: :chrome,
+    desired_capabilities: capabilities
+end
+
+Capybara.javascript_driver = :headless_chrome
+
 
 
 # def run_default_server(app, port)

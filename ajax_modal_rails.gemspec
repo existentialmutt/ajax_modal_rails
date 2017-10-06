@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'capybara', '>= 2.4'
   s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'poltergeist'
+  s.add_development_dependency 'capybara-selenium'
+  s.add_development_dependency 'chromedriver-helper'
   s.add_development_dependency 'pry-rails'
 end
