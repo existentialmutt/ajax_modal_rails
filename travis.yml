@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+  - 2.4
+  - jruby
+  - rbx-2
+script:
+  - bundle exec rspec
+addons:
+  chrome: stable
