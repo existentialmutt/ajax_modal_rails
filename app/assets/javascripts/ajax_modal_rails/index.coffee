@@ -32,12 +32,10 @@ class window.AjaxModal
           @open
 
   _registerForms: ->
-    console.log $(@formTriggersSelector).toArray()
     # scope.find(@formTriggersSelector).attr('data-remote', true)
     $('body').on 'submit', @formTriggersSelector, (event) =>
       form = event.currentTarget
       event.preventDefault()
-      console.log $(form).serialize()
       $.ajax
         url: form.getAttribute('action')
         type: form.getAttribute('method')
