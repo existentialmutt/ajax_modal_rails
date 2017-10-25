@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Rafe Rosen"]
   s.email       = ["existentialmutt@gmail.com"]
   s.homepage    = "http://github.com/existentialmutt/ajax_modal_rails"
-  s.summary     = "simple ajax-driven modals for rails"
+  s.summary     = "simple ajax-driven modals for rails.  uses bootstrap 4"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
