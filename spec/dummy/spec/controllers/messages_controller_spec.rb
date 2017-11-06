@@ -41,7 +41,7 @@ RSpec.describe MessagesController, type: :controller do
       it "returns a success response" do
         # TODO move to custom header
         # get articles_url, headers: { "Content-Type": "text/plain" } # simulate the request with custom header
-        @request.env['HTTP-X-AJAX-MODAL'] = true
+        @request.env['HTTP_X_AJAX_MODAL'] = true
         get :new
         expect(response).to be_success
       end
@@ -49,7 +49,7 @@ RSpec.describe MessagesController, type: :controller do
       it "renders the modal layout" do
         # TODO move to custom header
         # get articles_url, headers: { "Content-Type": "text/plain" } # simulate the request with custom header
-        @request.env['HTTP-X-AJAX-MODAL'] = true
+        @request.env['HTTP_X_AJAX_MODAL'] = true
         get :new
         expect(response).to render_template('layouts/ajax_modal_rails/content')
       end
@@ -60,7 +60,7 @@ RSpec.describe MessagesController, type: :controller do
     context "ajax modal request" do
         context "with valid params" do
           it "redirects via javascript" do
-            @request.env['HTTP-X-AJAX-MODAL'] = true
+            @request.env['HTTP_X_AJAX_MODAL'] = true
             post :create, params: {message: valid_attributes}
             expect(response).to render_template('ajax_modal_rails/redirect_via_js')
           end
@@ -68,13 +68,13 @@ RSpec.describe MessagesController, type: :controller do
 
         context "with invalid params" do
           it "returns a success response (i.e. to display the 'new' template)" do
-            @request.env['HTTP-X-AJAX-MODAL'] = true
+            @request.env['HTTP_X_AJAX_MODAL'] = true
             post :create, params: {message: invalid_attributes}
             expect(response).to be_success
           end
 
           it "renders the modal layout" do
-            @request.env['HTTP-X-AJAX-MODAL'] = true
+            @request.env['HTTP_X_AJAX_MODAL'] = true
             post :create, params: {message: invalid_attributes}
             expect(response).to render_template('layouts/ajax_modal_rails/content')
           end
