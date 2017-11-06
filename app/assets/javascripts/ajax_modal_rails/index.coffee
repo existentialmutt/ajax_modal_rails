@@ -24,7 +24,7 @@ class window.AjaxModal
         url: e.currentTarget.getAttribute("href"),
         dataType: 'html',
         headers: {
-          'X_AJAX_MODAL': true
+          'X-AJAX-MODAL': true
         },
         complete: (xhr, status) =>
           @loading.hide()
@@ -42,7 +42,7 @@ class window.AjaxModal
         dataType: 'html',
         data: $(form).serialize(),
         headers: {
-          'X_AJAX_MODAL': true
+          'X-AJAX-MODAL': true
         },
         complete: (xhr, status) =>
           @loading.hide()

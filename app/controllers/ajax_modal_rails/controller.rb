@@ -9,7 +9,7 @@ module AjaxModalRails::Controller
   # and forms should have `data-submits-to-pjax-modal`
 
   extend ActiveSupport::Concern
-  HEADER = 'HTTP_X_AJAX_MODAL'
+  HEADER = 'HTTP-X-AJAX-MODAL'
 
   included do
     layout ->(c) { ajax_modal_request? ? ajax_modal_layout : nil }
