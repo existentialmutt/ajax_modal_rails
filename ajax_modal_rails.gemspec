@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", "<= 4" #TODO relax version
+  s.add_dependency "rails", ">= 4" #TODO relax version
 
   s.add_development_dependency 'coffee-rails' # TODO remove coffeescript dependency
   s.add_development_dependency 'sass-rails', '~> 5.0'  
