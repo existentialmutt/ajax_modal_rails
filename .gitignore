@@ -8,3 +8,4 @@ spec/dummy/tmp/
 *.sublime-project
 *.sublime-workspace
 spec/examples.txt
+Gemfile.lock

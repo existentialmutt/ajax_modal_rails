@@ -42,6 +42,8 @@ A controller that is processing actions to be loaded in a modal should `include 
 
 The mixin sets the appropriate layout for modal requests and adds behavior that allows a modal request that results in a redirect to redirect the whole page.
 
+Note that a controller that includes the `AjaxModalRails::Controller` module will have a few things done to it, including overriding the default implementation of `redirect_to` and also have it's default `layout` set.   These modifications should be pretty innocuous as they only take effect for ajax modal requests and fall back to the default behavior otherwise, but if you encounter unexpected behavior be sure to examine the code in [app/controllers/ajax_modal_rails/controller.rb](app/controllers/ajax_modal_rails/controller.rb) You can then either copy the file into your own repository and make modifications there or just add appropriate code to your including controllers.
+
 ## Example
 
 These snippets are taken from the included [example application](spec/dummy)
