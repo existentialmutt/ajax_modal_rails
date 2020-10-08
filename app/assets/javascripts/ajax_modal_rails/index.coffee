@@ -32,7 +32,6 @@ class window.AjaxModal
           @open
 
   _registerForms: ->
-    # scope.find(@formTriggersSelector).attr('data-remote', true)
     $('body').on 'submit', @formTriggersSelector, (event) =>
       form = event.currentTarget
       event.preventDefault()
@@ -50,15 +49,13 @@ class window.AjaxModal
           @open
       return false
 
-
-    # $('body').on 'ajax:complete', @formTriggersSelector, (event, data, status, xhr) =>
-    #   @_registerForms @content
-      
-  # maybe don't need this for bootstrap
   _registerClose: ->
     @modal.on 'click', '[data-ajax-modal-close]', =>
-      @modal.modal('hide')
-      @reset()
+    @close
+
+  close: ->
+    @modal.modal('hide')
+    @reset()
 
   open: ->
     @modal.modal 'show'
